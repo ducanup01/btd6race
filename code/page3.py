@@ -52,7 +52,15 @@ for i in range (1,6):
 
 for i in range (1,6):
     if f"check{i}" not in st.session_state:
-        st.session_state[f"check{i}"] = ""
+        st.session_state[f"check{i}"] = True
+
+for i in range (1,4):
+    if f"streak_player{i}" not in st.session_state:
+        st.session_state[f"streak_player{i}"] = ""
+
+for i in range (1,4):
+    if f"streak{i}" not in st.session_state:
+        st.session_state[f"streak{i}"] = ""
 
 st.title("Race announcement formatter (RAF)")
 
@@ -119,38 +127,38 @@ with col4:
 st.write("\n")
 
 st.subheader("Additional info")
-st.write(":warning: Warning: Progress of this part will be lost upon changing page :warning:")
+st.write(":warning: Warning: Progress of this part might be lost upon changing page :warning:")
 
 # Current Top 3 Streak
 col1, col2, col3, col4 = st.columns([20,20,15,20], vertical_alignment="top")
 with col1:
-    check1 = st.checkbox("Current Top 3 Streak:")
+    check1 = st.checkbox("Current Top 3 Streak:", key="check1x")
 
 additional1 = ""
-if check1: 
+if check1:
     with col2:
-        streak_player1 = st.text_input("Player 1")
+        st.session_state.streak_player1 = st.text_input("Player 1", st.session_state.streak_player1)
     with col3:
         streak1 = st.number_input("Streak of Player 1", 2, 20, key="streak1x")
-    additional1 += f"Current Top 3 Streak: {streak_player1} ({streak1})"
+    additional1 += f"Current Top 3 Streak: {st.session_state.streak_player1} ({streak1})"
 
-    if not streak_player1:
+    if not st.session_state.streak_player1:
         additional1 = "Current Top 3 Streak: None"
     else:
         col1, col2, col3, col4 = st.columns([20,20,15, 20], vertical_alignment="top")
         with col2:
-            streak_player2 = st.text_input("Player 2")
+            st.session_state.streak_player2 = st.text_input("Player 2", st.session_state.streak_player2)
         with col3:
             streak2 = st.number_input("Streak of Player 2", 2, 20, key="streak2x")
-        additional1 += f", {streak_player2} ({streak2})"
-
-        if streak_player2:
+        if st.session_state.streak_player2:
+            additional1 += f", {st.session_state.streak_player2} ({streak2})"
             col1, col2, col3, col4 = st.columns([20,20,15, 20], vertical_alignment="top")
             with col2:
-                streak_player3 = st.text_input("Player 3")
+                st.session_state.streak_player3 = st.text_input("Player 3", st.session_state.streak_player3)
             with col3:
                 streak3 = st.number_input("Streak of Player 3", 2, 20, key="streak3x")
-            additional1 += f", {streak_player3} ({streak3})"
+            if st.session_state.streak_player3:
+                additional1 += f", {st.session_state.streak_player3} ({streak3})"
 
 
 # Current Top 5 Streak
@@ -161,44 +169,42 @@ with col1:
 additional2 = "" 
 if check2:      
     with col2:
-        streak5_player1 = st.text_input("Player 1", key="top51")
+        st.session_state.streak5_player1 = st.text_input("Player 1", st.session_state.streak5_player1, key="top51")
     with col3:
         streak51 = st.number_input("Streak of Player 1", 2, 20, key="streak51x")
-    additional2 += f"Current Top 5 Streak: {streak5_player1} ({streak51})"
+    additional2 += f"Current Top 5 Streak: {st.session_state.streak5_player1} ({streak51})"
 
-    if not streak5_player1:
+    if not st.session_state.streak5_player1:
         additional2 = "Current Top 5 Streak: None"
     else:
         col1, col2, col3, col4 = st.columns([20,20,15, 20], vertical_alignment="top")
         with col2:
-            streak5_player2 = st.text_input("Player 2", key="top52")
+            st.session_state.streak5_player2 = st.text_input("Player 2", st.session_state.streak5_player2, key="top52")
         with col3:
             streak52 = st.number_input("Streak of Player 2", 2, 20, key="streak52x")
-        additional2 += f", {streak5_player2} ({streak52})"
-
-        if streak5_player2:
+        if st.session_state.streak5_player2:
+            additional2 += f", {st.session_state.streak5_player2} ({streak52})"
             col1, col2, col3, col4 = st.columns([20,20,15, 20], vertical_alignment="top")
             with col2:
-                streak5_player3 = st.text_input("Player 3", key="top53")
+                st.session_state.streak5_player3 = st.text_input("Player 3", st.session_state.streak5_player3, key="top53")
             with col3:
                 streak53 = st.number_input("Streak of Player 3", 2, 20,  key="streak53x")
-            additional2 += f", {streak5_player3} ({streak53})"
-
-            if streak5_player3:
+            if st.session_state.streak5_player3:
+                additional2 += f", {st.session_state.streak5_player3} ({streak53})"
                 col1, col2, col3, col4 = st.columns([20,20,15, 20], vertical_alignment="top")
                 with col2:
-                    streak5_player4 = st.text_input("Player 4", key="top54x")
+                    st.session_state.streak5_player4 = st.text_input("Player 4", st.session_state.streak5_player4, key="top54x")
                 with col3:
                     streak54 = st.number_input("Streak of player 4", 2, 20, key="streak54x")
-                additional2 += f", {streak5_player4} ({streak54})"
-
-                if streak5_player4:
+                if st.session_state.streak5_player4:
+                    additional2 += f", {st.session_state.streak5_player4} ({streak54})"
                     col1, col2, col3, col4 = st.columns([20,20,15, 20], vertical_alignment="top")
                     with col2:
-                        streak5_player5 = st.text_input("Player 5", key="top55x")
+                        st.session_state.streak5_player5 = st.text_input("Player 5", st.session_state.streak5_player5, key="top55x")
                     with col3:
                         streak55 = st.number_input("Streak of player 5", 2, 20, key="streak55x")
-                    additional2 += f", {streak5_player5} ({streak55})"
+                        if st.session_state.streak5_player5:
+                            additional2 += f", {st.session_state.streak5_player5} ({streak55})"
 
 # Races without new top 3
 additional3 = ""
