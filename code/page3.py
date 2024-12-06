@@ -52,7 +52,7 @@ for i in range (1,6):
 
 for i in range (1,6):
     if f"check{i}" not in st.session_state:
-        st.session_state[f"check{i}"] = True
+        st.session_state[f"check{i}"] = False
 
 for i in range (1,4):
     if f"streak_player{i}" not in st.session_state:
@@ -61,6 +61,12 @@ for i in range (1,4):
 for i in range (1,4):
     if f"streak{i}" not in st.session_state:
         st.session_state[f"streak{i}"] = ""
+
+if "check" not in st.session_state:
+    st.session_state.check = {1:False, 2:False, 3:False, 4:False, 5:False}  # Four checkboxes initialized to False
+
+def flip(index):
+    st.session_state.check[index] = not st.session_state.check[index]
 
 st.title("Race announcement formatter (RAF)")
 
@@ -132,10 +138,10 @@ st.write(":warning: Warning: Progress of this part might be lost upon changing p
 # Current Top 3 Streak
 col1, col2, col3, col4 = st.columns([20,20,15,20], vertical_alignment="top")
 with col1:
-    check1 = st.checkbox("Current Top 3 Streak:", key="check1x")
+    st.session_state.check1 = st.checkbox("Current Top 3 Streak:", value=st.session_state.check[1], key="check_1", on_change=flip, args=(1,))
 
 additional1 = ""
-if check1:
+if st.session_state.check1:
     with col2:
         st.session_state.streak_player1 = st.text_input("Player 1", st.session_state.streak_player1)
     with col3:
@@ -164,10 +170,10 @@ if check1:
 # Current Top 5 Streak
 col1, col2, col3, col4 = st.columns([20,20,15, 20], vertical_alignment="top")
 with col1:
-    check2 = st.checkbox("Current Top 5 Streak:", key="check2x")
+    st.session_state.check2 = st.checkbox("Current Top 5 Streak:", value=st.session_state.check[2], key="check_2", on_change=flip, args=(2,))
 
 additional2 = "" 
-if check2:      
+if st.session_state.check2:      
     with col2:
         st.session_state.streak5_player1 = st.text_input("Player 1", st.session_state.streak5_player1, key="top51")
     with col3:
@@ -210,8 +216,8 @@ if check2:
 additional3 = ""
 col1, col2, col3 = st.columns([17,10,25], vertical_alignment="bottom")
 with col1:
-    check3 = st.checkbox("Races without new Top 3: ")
-    if check3:
+    st.session_state.check3 = st.checkbox("Races without new Top 3:", value=st.session_state.check[3], key="check_3", on_change=flip, args=(3,))
+    if st.session_state.check3:
         with col2:
             streak_no3 = st.number_input("", 0, 100, key="no3")
             additional3 += f"Races without new Top 3: {streak_no3}"
@@ -220,8 +226,8 @@ with col1:
 additional4 = ""
 col1, col2, col3 = st.columns([17,10,25], vertical_alignment="bottom")
 with col1:
-    check4 = st.checkbox("Streak of no uploads by Tobi:")
-    if check4:
+    st.session_state.check4 = st.checkbox("Streak of no uploads by Tobi:", value=st.session_state.check[4], key="check_4", on_change=flip, args=(4,))
+    if st.session_state.check4:
         with col2:
             no_upload = st.number_input("", 0, 100, key="no_upload")
             additional4 += f"Streak of no uploads by Tobi: {no_upload}"
@@ -229,9 +235,10 @@ with col1:
 # Others
 additional5 = ""
 check5 = st.checkbox("Others")
-if st.session_state.check5:
-    custom = st.text_area("Customize info here")
-    additional5 += f"{custom}"
+if check5:
+    custom = st.text_area("Customize info here", key="custom_info")
+    if custom:
+        additional5 += f"{custom}"
 
 race_announcements = ( 
     f"**Race #{st.session_state.raceno} \"{st.session_state.racetitle}\" Final Results:** \n" 
