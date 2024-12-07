@@ -1,6 +1,4 @@
 import streamlit as st
 
-st.title("Race History Overview")
-st.subheader("Feature Coming Soon")
-
-
+st.title("Race history overview")
+st.subheader("Feature coming soon")

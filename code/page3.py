@@ -7,68 +7,56 @@ def show_contact_form():
     contact_form()
 
 # Initialize session state variables
-if "raceno" not in st.session_state:
-    st.session_state.raceno = ""
-if "racetitle" not in st.session_state:
-    st.session_state.racetitle = ""
-if "custom" not in st.session_state:
-    st.session_state.custom = ""
-    
-for i in range(1,6):
-    if f"player{i}" not in st.session_state:
-        st.session_state[f"player{i}"] = ""
+# Initialize session state variables with default values
+st.session_state.update({
+    "raceno": st.session_state.get("raceno", ""),
+    "racetitle": st.session_state.get("racetitle", ""),
+    "custom": st.session_state.get("custom", ""),
+    "check": st.session_state.get("check", {1: False, 2: False, 3: False, 4: False, 5: False}),
+})
 
-for i in range(1,6):
-    if f"ign{i}" not in st.session_state:
-        st.session_state[f"ign{i}"] = ""
 
-for i in range(1,6):
-    if f"time{i}" not in st.session_state:
-        st.session_state[f"time{i}"] = ""
+# Define a function to initialize session state keys
+def init_session_state(keys, default_value):
+    for key, value in keys.items():
+        for i in range(1, value + 1):
+            if f"{key}{i}" not in st.session_state:
+                st.session_state[f"{key}{i}"] = default_value[key]
 
-for i in range(1,6):
-    if f"link{i}" not in st.session_state:
-        st.session_state[f"link{i}"] = ""
+# Keys and their respective default values
+defaults = {
+    "player": "",
+    "ign": "",
+    "time": "",
+    "link": "",
+    "additional": "",
+    "streak": 2,
+    "streak5": 2,
+    "streak_player": "",
+    "streak5_player": "",
+    "check": False,
+}
 
-for i in range(1,5):
-    if f"additional{i}" not in st.session_state:
-        st.session_state[f"additional{i}"] = ""
+# Keys and their range limits
+key_ranges = {
+    "player": 5,
+    "ign": 5,
+    "time": 5,
+    "link": 5,
+    "additional": 4,
+    "streak": 3,
+    "streak5": 5,
+    "streak_player": 3,
+    "streak5_player": 5,
+    "check": 5,
+}
 
-for i in range (1,4):
-    if f"streak{i}" not in st.session_state:
-        st.session_state[f"streak{i}"] = 2
+# Initialize session states
+init_session_state(key_ranges, defaults)
 
-for i in range (1,6):
-    if f"streak5{i}" not in st.session_state:
-        st.session_state[f"streak5{i}"] = 2
-
-for i in range (1,4):
-    if f"streak_player{i}" not in st.session_state:
-        st.session_state[f"streak_player{i}"] = ""
-
-for i in range (1,6):
-    if f"streak5_player{i}" not in st.session_state:
-        st.session_state[f"streak5_player{i}"] = ""
-
-if "check" not in st.session_state:
-    st.session_state.check = {1:False, 2:False, 3:False, 4:False, 5:False}
-
-for i in range (1,6):
-    if f"check{i}" not in st.session_state:
-        st.session_state[f"check{i}"] = False
-
-for i in range (1,4):
-    if f"streak{i}" not in st.session_state:
-        st.session_state[f"streak{i}"] = 2
 
 def flip(index):
     st.session_state.check[index] = not st.session_state.check[index]
-
-def update(index):
-    st.session_state[f"streak{index}"] = st.session_state[f"streak{index}key"]
-
-if "custom" not in st.session_state:
-    st.session_state.custom = ""
 
 st.title("Race announcement formatter (RAF)")
 
@@ -84,7 +72,7 @@ st.write("\n")
 
 col0, col1, col2, col3, col4 = st.columns([9,22,22,11,36], vertical_alignment="bottom")
 with col0:
-    st.image("image/1st.webp", use_container_width="auto")
+    st.image("image/1st.webp", clamp=True, use_container_width="auto")
 with col1:
     st.session_state.player1 = st.text_input("Player (First place)", st.session_state.player1)
 with col2:
@@ -265,6 +253,7 @@ race_announcements = (
     f"{additional4} \n"
     f"{st.session_state.additional5} \n"
 )
+
 
 st.subheader("Announcement preview :mag:")
 st.text(race_announcements)
