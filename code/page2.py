@@ -103,7 +103,7 @@ with tab1:
                             
                             last_bloon_2 = filtered_data_2.loc[largest_length_index_2, 'last']
 
-                            message1 += f"- If you pause at round {dock}, you have to send :blue-background[**round {end_round}**] before :blue-background[**{safe_time}**] before losing more time. \n"
+                            message1 += f"- If you pause at round {dock}, you have to send :blue-background[**round {end_round}**] before :blue-background[**{safe_time}**] to not lose time. \n"
 
                             message1 += f"- The second longest round is :blue-background[**round {longest_round_2}**], ending with a :blue-background[**{last_bloon_2}**]."
                 else:
