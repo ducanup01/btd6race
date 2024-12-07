@@ -36,11 +36,11 @@ for i in range(1,5):
 
 for i in range (1,4):
     if f"streak{i}" not in st.session_state:
-        st.session_state[f"streak{i}"] = ""
+        st.session_state[f"streak{i}"] = 2
 
 for i in range (1,6):
     if f"streak5{i}" not in st.session_state:
-        st.session_state[f"streak5{i}"] = ""
+        st.session_state[f"streak5{i}"] = 2
 
 for i in range (1,4):
     if f"streak_player{i}" not in st.session_state:
@@ -50,27 +50,29 @@ for i in range (1,6):
     if f"streak5_player{i}" not in st.session_state:
         st.session_state[f"streak5_player{i}"] = ""
 
+if "check" not in st.session_state:
+    st.session_state.check = {1:False, 2:False, 3:False, 4:False, 5:False}
+
 for i in range (1,6):
     if f"check{i}" not in st.session_state:
         st.session_state[f"check{i}"] = False
 
 for i in range (1,4):
-    if f"streak_player{i}" not in st.session_state:
-        st.session_state[f"streak_player{i}"] = ""
-
-for i in range (1,4):
     if f"streak{i}" not in st.session_state:
-        st.session_state[f"streak{i}"] = ""
-
-if "check" not in st.session_state:
-    st.session_state.check = {1:False, 2:False, 3:False, 4:False, 5:False}  # Four checkboxes initialized to False
+        st.session_state[f"streak{i}"] = 2
 
 def flip(index):
     st.session_state.check[index] = not st.session_state.check[index]
 
+def update(index):
+    st.session_state[f"streak{index}"] = st.session_state[f"streak{index}key"]
+
+if "custom" not in st.session_state:
+    st.session_state.custom = ""
+
 st.title("Race announcement formatter (RAF)")
 
-col1, col2, col3, col4, col5 = st.columns([10,10,50,20,10])
+col1, col2, col3, col4, col5 = st.columns([9,10,50,20,11])
 with col1:
     pass
 with col2:
@@ -80,7 +82,9 @@ with col3:
 
 st.write("\n")
 
-col1, col2, col3, col4 = st.columns([25,25,13,37])
+col0, col1, col2, col3, col4 = st.columns([9,22,22,11,36], vertical_alignment="bottom")
+with col0:
+    st.image("image/1st.webp", use_container_width="auto")
 with col1:
     st.session_state.player1 = st.text_input("Player (First place)", st.session_state.player1)
 with col2:
@@ -90,7 +94,9 @@ with col3:
 with col4:
     st.session_state.link1 = st.text_input("Link", st.session_state.link1)
 
-col1, col2, col3, col4 = st.columns([25,25,13,37])
+col0, col1, col2, col3, col4 = st.columns([9,22,22,11,36], vertical_alignment="bottom")
+with col0:
+    st.image("image/2nd.webp", use_container_width="auto")
 with col1:
     st.session_state.player2 = st.text_input("Player (2nd place)", st.session_state.player2)
 with col2:
@@ -100,7 +106,9 @@ with col3:
 with col4:
     st.session_state.link2 = st.text_input("Link", st.session_state.link2, key=9)
 
-col1, col2, col3, col4 = st.columns([25,25,13,37])
+col0, col1, col2, col3, col4 = st.columns([9,22,22,11,36], vertical_alignment="bottom")
+with col0:
+    st.image("image/3rd.webp", use_container_width="auto")
 with col1:
     st.session_state.player3 = st.text_input("Player (3rd place)", st.session_state.player3)
 with col2:
@@ -110,7 +118,9 @@ with col3:
 with col4:
     st.session_state.link3 = st.text_input("Link", st.session_state.link3, key=10)
 
-col1, col2, col3, col4 = st.columns([25,25,13,37])
+col0, col1, col2, col3, col4 = st.columns([9,22,22,11,36], vertical_alignment="bottom")
+with col0:
+    st.image("image/top50.webp", use_container_width="auto")
 with col1:
     st.session_state.player4 = st.text_input("Player (4th place)", st.session_state.player4)
 with col2:
@@ -120,7 +130,9 @@ with col3:
 with col4:
     st.session_state.link4 = st.text_input("Link", st.session_state.link4, key=11)
 
-col1, col2, col3, col4 = st.columns([25,25,13,37])
+col0, col1, col2, col3, col4 = st.columns([9,22,22,11,36], vertical_alignment="bottom")
+with col0:
+    st.image("image/top50.webp", use_container_width="auto")
 with col1:
     st.session_state.player5 = st.text_input("Player (5th place)", st.session_state.player5)
 with col2:
@@ -133,7 +145,6 @@ with col4:
 st.write("\n")
 
 st.subheader("Additional info")
-st.write(":warning: Warning: Progress of this part might be lost upon changing page :warning:")
 
 # Current Top 3 Streak
 col1, col2, col3, col4 = st.columns([20,20,15,20], vertical_alignment="top")
@@ -145,7 +156,7 @@ if st.session_state.check1:
     with col2:
         st.session_state.streak_player1 = st.text_input("Player 1", st.session_state.streak_player1)
     with col3:
-        streak1 = st.number_input("Streak of Player 1", 2, 20, key="streak1x")
+        streak1 = st.number_input("Streak of Player 1", 2, 20, key="streak1key")
     additional1 += f"Current Top 3 Streak: {st.session_state.streak_player1} ({streak1})"
 
     if not st.session_state.streak_player1:
@@ -233,12 +244,12 @@ with col1:
             additional4 += f"Streak of no uploads by Tobi: {no_upload}"
 
 # Others
-additional5 = ""
-check5 = st.checkbox("Others")
-if check5:
-    custom = st.text_area("Customize info here", key="custom_info")
-    if custom:
-        additional5 += f"{custom}"
+st.session_state.additional5 = ""
+st.session_state.check5 = st.checkbox("Others", value=st.session_state.check[5], key="check_5", on_change=flip, args=(5,))
+if st.session_state.check5:
+    st.session_state.custom = st.text_area("Customize info here", st.session_state.custom, key="custom_info")
+    if st.session_state.custom:
+        st.session_state.additional5 += f"{st.session_state.custom}"
 
 race_announcements = ( 
     f"**Race #{st.session_state.raceno} \"{st.session_state.racetitle}\" Final Results:** \n" 
@@ -252,7 +263,7 @@ race_announcements = (
     f"{additional2} \n"
     f"{additional3} \n"
     f"{additional4} \n"
-    f"{additional5} \n"
+    f"{st.session_state.additional5} \n"
 )
 
 st.subheader("Announcement preview :mag:")
