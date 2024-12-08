@@ -1,10 +1,5 @@
 import streamlit as st
 from st_copy_to_clipboard import st_copy_to_clipboard
-from forms.contact import contact_form
-
-@st.dialog("Anonymous feedback form")
-def show_contact_form():
-    contact_form()
 
 # Initialize session state variables
 # Initialize session state variables with default values
@@ -259,7 +254,3 @@ st.subheader("Announcement preview :mag:")
 st.text(race_announcements)
 
 st_copy_to_clipboard(race_announcements)
-
-
-if st.button(":email: Anonymous feedback"):
-        show_contact_form()
