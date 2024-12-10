@@ -1,14 +1,12 @@
 import streamlit as st
 from forms.contact import contact_form
 
-@st.dialog("Anonymous feedback form")
+@st.dialog("Anonymous feedback")
 def show_contact_form():
     contact_form()
 
 st.title("Home")
 st.write("Last update on December 8th")
-
-
 
 st.write("")
 col1, col2 = st.columns([1,2], vertical_alignment="center")

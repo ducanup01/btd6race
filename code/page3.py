@@ -234,13 +234,54 @@ if st.session_state.check5:
     if st.session_state.custom:
         st.session_state.additional5 += f"{st.session_state.custom}"
 
+
+
+linea1 = f":1st_Place: - **{st.session_state.player1} \"{st.session_state.ign1}\"** ([{st.session_state.time1}]({st.session_state.link1}))"
+lineb1 = f":1st_Place: - **{st.session_state.player1} \"{st.session_state.ign1}\"** ({st.session_state.time1})"
+
+linea2 = f"\n\n :2nd_Place: - **{st.session_state.player2} \"{st.session_state.ign2}\"** ([{st.session_state.time2}]({st.session_state.link2}))"
+lineb2 = f"\n :2nd_Place: - **{st.session_state.player2} \"{st.session_state.ign2}\"** ({st.session_state.time2})"
+
+linea3 = f"\n :3rd_Place: - **{st.session_state.player3} \"{st.session_state.ign3}\"** ([{st.session_state.time3}]({st.session_state.link3}))"
+lineb3 = f"\n :3rd_Place: - **{st.session_state.player3} \"{st.session_state.ign3}\"** ({st.session_state.time3})"
+
+linea4 = f"\n 4th - **{st.session_state.player4} \"{st.session_state.ign4}\"** ([{st.session_state.time4}]({st.session_state.link4}))"
+lineb4 = f"\n 4th - **{st.session_state.player4} \"{st.session_state.ign4}\"** ({st.session_state.time4})"
+
+linea5 = f"\n 5th - **{st.session_state.player5} \"{st.session_state.ign5}\"** ([{st.session_state.time5}]({st.session_state.link5})) \n\n\n"
+lineb5 = f"\n 5th - **{st.session_state.player5} \"{st.session_state.ign5}\"** ({st.session_state.time5}) \n\n\n"
+
 race_announcements = ( 
     f"**Race #{st.session_state.raceno} \"{st.session_state.racetitle}\" Final Results:** \n" 
-    f":1st_Place: - **{st.session_state.player1} \"{st.session_state.ign1}\"** ({st.session_state.time1}): {st.session_state.link1} \n"
-    f":2nd_Place: - **{st.session_state.player2} \"{st.session_state.ign2}\"** ({st.session_state.time2}): {st.session_state.link2} \n"
-    f":3rd_Place: - **{st.session_state.player3} \"{st.session_state.ign3}\"** ({st.session_state.time3}): {st.session_state.link3} \n"
-    f"4th - **{st.session_state.player4} \"{st.session_state.ign4}\"** ({st.session_state.time4}): {st.session_state.link4} \n"
-    f"5th - **{st.session_state.player5} \"{st.session_state.ign5}\"** ({st.session_state.time5}): {st.session_state.link5} \n\n\n"
+)
+
+
+if not st.session_state.link1 or st.session_state.link1.lower() == "n/a":
+    race_announcements += lineb1
+else:
+    race_announcements += linea1
+
+if not st.session_state.link2 or st.session_state.link2.lower() == "n/a":
+    race_announcements += lineb2
+else:
+    race_announcements += linea2
+
+if not st.session_state.link3 or st.session_state.link3.lower() == "n/a":
+    race_announcements += lineb3
+else:
+    race_announcements += linea3
+
+if not st.session_state.link4 or st.session_state.link4.lower() == "n/a":
+    race_announcements += lineb4
+else:
+    race_announcements += linea4
+
+if not st.session_state.link5 or st.session_state.link5.lower() == "n/a":
+    race_announcements += lineb5
+else:
+    race_announcements += linea5
+
+additional_info = (
     f"**Additional Info:** \n"
     f"{additional1} \n"
     f"{additional2} \n"
@@ -249,6 +290,7 @@ race_announcements = (
     f"{st.session_state.additional5} \n"
 )
 
+race_announcements += additional_info
 
 st.subheader("Announcement preview :mag:")
 st.text(race_announcements)
