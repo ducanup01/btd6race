@@ -1,15 +1,47 @@
 import streamlit as st
 from st_copy_to_clipboard import st_copy_to_clipboard
+import requests
+import math
+import time
+
 
 # Initialize session state variables
 # Initialize session state variables with default values
+
+
+
+def format_time(ms):
+    seconds, milliseconds = divmod(ms, 1000)
+    milliseconds = math.floor(milliseconds/10)
+    minutes, seconds = divmod(seconds, 60)
+    return f"{int(minutes):01}:{int(seconds):02}.{int(milliseconds):02}"
+
+def fetch_leaderboard():
+    # Fetch race data
+    races = requests.get("https://data.ninjakiwi.com/btd6/races")
+    latest_leaderboard_url = races.json()['body'][0]['leaderboard']
+    latest_leaderboard = requests.get(latest_leaderboard_url)
+    return latest_leaderboard.json()['body']
+
+def fetch_race_name():
+    races = requests.get("https://data.ninjakiwi.com/btd6/races")
+    race_data = races.json()['body'][0]  # Get the first race entry
+    return race_data['name']  # Retrieve the race title
+
+def parse_text(lines):
+    parsed = []
+    for line in lines:
+        if ":" in line:
+            left, right = line.split(": ", 1)
+            parsed.append((left, right))
+    return parsed
+
 st.session_state.update({
     "raceno": st.session_state.get("raceno", ""),
     "racetitle": st.session_state.get("racetitle", ""),
     "custom": st.session_state.get("custom", ""),
     "check": st.session_state.get("check", {1: False, 2: False, 3: False, 4: False, 5: False}),
 })
-
 
 # Define a function to initialize session state keys
 def init_session_state(keys, default_value):
@@ -46,6 +78,9 @@ key_ranges = {
     "check": 5,
 }
 
+if 'leaderboard_visible' not in st.session_state:
+    st.session_state['leaderboard_visible'] = False  # Track visibility state
+
 # Initialize session states
 init_session_state(key_ranges, defaults)
 
@@ -54,16 +89,39 @@ def flip(index):
     st.session_state.check[index] = not st.session_state.check[index]
 
 st.title("Race announcement formatter (RAF)")
-
-col1, col2, col3, col4, col5 = st.columns([9,10,50,20,11])
-with col1:
-    pass
+fetch_data = ""
+col1, col2, col3, col4 = st.columns([9,10,45,35])
 with col2:
     st.session_state.raceno = st.text_input("Race #", st.session_state.raceno)
+with col4:
+    st.markdown('<div style="padding-top: 28px;"></div>', unsafe_allow_html=True)
+    if st.button("Fetch leaderboard"):
+        st.session_state['leaderboard_visible'] = True
+        players = fetch_leaderboard()
+        with st.container():
+            st.text("Leaderboard (Top 5):")
+            
+            # Display leaderboard entries in two columns
+            for x in range(5):
+                col1, col2 = st.columns([2, 1])
+                with col1:
+                    st.text(players[x]['displayName'])
+                with col2:
+                    st.text(format_time(players[x]['score']))
+
+        race_name = fetch_race_name()
+        st.session_state.racetitle = race_name
+
+        for i in range(5):
+            st.session_state[f'ign{i+1}'] = players[i]['displayName']
+            st.session_state[f'time{i+1}'] = format_time(players[i]['score'])
+        
+        if st.button("Close"):
+            st.session_state['leaderboard_visible'] = False
 with col3:
     st.session_state.racetitle = st.text_input("Race title:", st.session_state.racetitle)
-
-st.write("\n")
+with col1:
+    pass
 
 col0, col1, col2, col3, col4 = st.columns([9,22,22,11,36], vertical_alignment="bottom")
 with col0:
@@ -124,6 +182,7 @@ with col3:
     st.session_state.time5 = st.text_input("Time", st.session_state.time5, key=8)
 with col4:
     st.session_state.link5 = st.text_input("Link", st.session_state.link5, key=12)
+
 
 st.write("\n")
 
