@@ -33,11 +33,11 @@ with col1:
 with col3:
     tab1, tab2, tab3 = st.tabs(["**Standard** :balloon:", "**Alternate Bloons Rounds** :exclamation:", "**Reverse** :rewind:"])
     with tab1:
-        if start_round > end_round:
+        if start_round >= end_round:
             st.error("Invalid round input", icon="❌")
         else:
             reg = pd.read_csv("image/regular.csv")
-            filtered_data = reg[(reg['round'] >= start_round) & (reg['round'] <= end_round)]
+            filtered_data = reg[(reg['round'] >= start_round+1) & (reg['round'] <= end_round)]
             length_from_send = filtered_data['length'] + (filtered_data['round'] - start_round - 1)*0.2
             largest_length_index = length_from_send.idxmax()
             largest_length = filtered_data.loc[largest_length_index, 'length']
@@ -74,13 +74,13 @@ with col3:
             st.write(message1)
 
     with tab2:
-        if start_round > end_round:
+        if start_round >= end_round:
             st.error("Invalid round input", icon="❌")
         elif end_round > 100:
             st.error("Highest round for ABR is 100", icon="⚠️")
         else:
             abr = pd.read_csv("image/abr.csv")
-            filtered_data = abr[(abr['round'] >= start_round) & (abr['round'] <= end_round)]
+            filtered_data = abr[(abr['round'] >= start_round+1) & (abr['round'] <= end_round)]
             length_from_send = filtered_data['length'] + (filtered_data['round'] - start_round - 1)*0.2
             largest_length_index = length_from_send.idxmax()
             largest_length = filtered_data.loc[largest_length_index, 'length']
@@ -116,11 +116,11 @@ with col3:
             st.write(message1)
 
     with tab3:
-        if start_round > end_round:
+        if start_round >= end_round:
             st.error("Invalid round input", icon="❌")
         else:
             reg = pd.read_csv("image/regular.csv")
-            filtered_data = reg[(reg['round'] >= start_round) & (reg['round'] <= end_round)]
+            filtered_data = reg[(reg['round'] >= start_round+1) & (reg['round'] <= end_round)]
             length_from_send = filtered_data['length'] + (filtered_data['round'] - start_round - 1)*0.2
             largest_length_index = length_from_send.idxmax()
             largest_length = filtered_data.loc[largest_length_index, 'length']
