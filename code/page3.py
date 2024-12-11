@@ -9,6 +9,12 @@ import time
 # Initialize session state variables with default values
 
 
+def remove(link):
+    if "?si=" in link:
+        base_link = link.split("?si=")[0]
+    else:
+        base_link = link
+    return base_link
 
 def format_time(ms):
     seconds, milliseconds = divmod(ms, 1000)
@@ -295,25 +301,24 @@ if st.session_state.check5:
 
 
 
-linea1 = f":1st_Place: - **{st.session_state.player1} \"{st.session_state.ign1}\"** ([{st.session_state.time1}]({st.session_state.link1}))"
+linea1 = f":1st_Place: - **{st.session_state.player1} \"{st.session_state.ign1}\"** ([{st.session_state.time1}]({remove(st.session_state.link1)}))"
 lineb1 = f":1st_Place: - **{st.session_state.player1} \"{st.session_state.ign1}\"** ({st.session_state.time1})"
 
-linea2 = f"\n\n :2nd_Place: - **{st.session_state.player2} \"{st.session_state.ign2}\"** ([{st.session_state.time2}]({st.session_state.link2}))"
+linea2 = f"\n\n :2nd_Place: - **{st.session_state.player2} \"{st.session_state.ign2}\"** ([{st.session_state.time2}]({remove(st.session_state.link2)}))"
 lineb2 = f"\n :2nd_Place: - **{st.session_state.player2} \"{st.session_state.ign2}\"** ({st.session_state.time2})"
 
-linea3 = f"\n :3rd_Place: - **{st.session_state.player3} \"{st.session_state.ign3}\"** ([{st.session_state.time3}]({st.session_state.link3}))"
+linea3 = f"\n :3rd_Place: - **{st.session_state.player3} \"{st.session_state.ign3}\"** ([{st.session_state.time3}]({remove(st.session_state.link3)}))"
 lineb3 = f"\n :3rd_Place: - **{st.session_state.player3} \"{st.session_state.ign3}\"** ({st.session_state.time3})"
 
-linea4 = f"\n 4th - **{st.session_state.player4} \"{st.session_state.ign4}\"** ([{st.session_state.time4}]({st.session_state.link4}))"
+linea4 = f"\n 4th - **{st.session_state.player4} \"{st.session_state.ign4}\"** ([{st.session_state.time4}]({remove(st.session_state.link4)}))"
 lineb4 = f"\n 4th - **{st.session_state.player4} \"{st.session_state.ign4}\"** ({st.session_state.time4})"
 
-linea5 = f"\n 5th - **{st.session_state.player5} \"{st.session_state.ign5}\"** ([{st.session_state.time5}]({st.session_state.link5})) \n\n\n"
+linea5 = f"\n 5th - **{st.session_state.player5} \"{st.session_state.ign5}\"** ([{st.session_state.time5}]({remove(st.session_state.link5)})) \n\n\n"
 lineb5 = f"\n 5th - **{st.session_state.player5} \"{st.session_state.ign5}\"** ({st.session_state.time5}) \n\n\n"
 
 race_announcements = ( 
     f"**Race #{st.session_state.raceno} \"{st.session_state.racetitle}\" Final Results:** \n" 
 )
-
 
 if not st.session_state.link1 or st.session_state.link1.lower() == "n/a":
     race_announcements += lineb1
