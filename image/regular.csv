@@ -6,7 +6,7 @@ round,length,first,last
 5,16.51,blue,blue
 6,18.71,green,blue
 7,26.81,blue,blue
-8,28.90,blue,green
+8,28.9,blue,green
 9,18.96,green,green
 10,48.01,blue,blue
 11,19.18,yellow,red
@@ -28,7 +28,7 @@ round,length,first,last
 27,34.28,red,yellow
 28,5.01,lead,lead
 29,15.26,yellow,regrow yellow
-30,13.10,lead,lead
+30,13.1,lead,lead
 31,15.93,black,regrow zebra
 32,27.98,black,purple
 33,25.36,camo red,camo yellow
@@ -42,64 +42,64 @@ round,length,first,last
 41,46.21,black,zebra
 42,11.61,regrow rainbow,camo rainbow
 43,9.28,rainbow,ceramic
-44,23.70,zebra,zebra
+44,23.7,zebra,zebra
 45,53.11,rainbow,fortified lead
 46,7.01,fortified ceramic,fortified ceramic
 47,24.66,ceramic,camo pink
 48,55.75,regrow pink,fortified ceramic
 49,50.01,green,green
-50,28.50,MOAB,MOAB
+50,28.5,MOAB,MOAB
 51,24.16,camo ceramic,regrow rainbow
 52,20.58,rainbow,ceramic
 53,35.01,camo pink,camo pink
 54,19.43,ceramic,ceramic
-55,29.30,ceramic,MOAB
-56,15.70,camo rainbow,MOAB
+55,29.8,ceramic,MOAB
+56,16.2,camo rainbow,MOAB
 57,26.25,MOAB,rainbow
 58,44,MOAB,MOAB
 59,26.18,ceramic,regrow ceramic
-60,0.51,BFB,BFB
+60,0.53,BFB,BFB
 61,20.01,regrow zebra,regrow zebra
 62,48.31,purple,camo regrow rainbow
 63,42.26,lead,lead
 64,9.55,MOAB,fortified MOAB
-65,62.015,zebra,BFB
+65,62.03,zebra,BFB
 66,22.76,MOAB,fortified MOAB
 67,26.46,MOAB,MOAB
-68,7.96,MOAB,BFB
+68,7.98,MOAB,BFB
 69,42.15,fortified lead,ceramic
 70,41.16,camo regrow white + rainbow,MOAB
-71,16.565,ceramic,ceramic
+71,16.56,ceramic,ceramic
 72,21.71,regrow ceramic,regrow ceramic
-73,26.70,MOAB,MOAB
-74,82.415,ceramic,fortified ceramic
-75,22.61,BFB,BFB
-76,1.80,regrow ceramic,regrow ceramic
+73,26.7,MOAB,MOAB
+74,82.41,ceramic,fortified ceramic
+75,22.63,BFB,BFB
+76,1.8,regrow ceramic,regrow ceramic
 77,58.95,MOAB,MOAB
 78,90.01,rainbow,rainbow
-79,60.015,regrow rainbow,regrow rainbow
-80,1.01,ZOMG,ZOMG
-81,26.50,BFB,BFB
-82,35.70,BFB,fortified BFB
+79,60.01,regrow rainbow,regrow rainbow
+80,1.03,ZOMG,ZOMG
+81,26.51,BFB,BFB
+82,35.71,BFB,fortified BFB
 83,60.21,super ceramic,fortified super ceramic
-84,25.01,MOAB,BFB
-85,10.01,ZOMG,ZOMG
-86,20.86,fortified BFB,fortified BFB
-87,10.01,ZOMG,ZOMG
-88,14.56,BFB,ZOMG
-89,20.76,fortified MOAB,fortified BFB
+84,25.03,MOAB,BFB
+85,10.03,ZOMG,ZOMG
+86,20.88,fortified BFB,fortified BFB
+87,10.03,ZOMG,ZOMG
+88,14.58,BFB,ZOMG
+89,20.78,fortified MOAB,fortified BFB
 90,11.91,fortified camo regrow lead,DDT
 91,30.01,fortified super ceramic,fortified super ceramic
 92,35.01,fortified MOAB,fortified MOAB
-93,20.01,fortified BFB,fortified BFB
-94,15.01,BFB,BFB
+93,20.03,fortified BFB,fortified BFB
+94,15.03,BFB,BFB
 95,50.83,camo regrow purple + fortified camo regrow lead,DDT
-96,32.15,BFB,ZOMG
-97,5.01,fortified ZOMG,fortified ZOMG
-98,30.01,ZOMG,fortified BFB
+96,32.16,BFB,ZOMG
+97,5.03,fortified ZOMG,fortified ZOMG
+98,30.03,ZOMG,fortified BFB
 99,12.01,MOAB,MOAB
-100,0.1,BAD,BAD
-101,9.5,purple,purple
+100,0.13,BAD,BAD
+101,9.51,purple,purple
 102,46.51,ZOMG,fortified DDT
 103,19.01,fortified ZOMG,purple
 104,22.01,BFB,fortified MOAB

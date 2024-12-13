@@ -99,31 +99,36 @@ fetch_data = ""
 col1, col2, col3, col4 = st.columns([9,10,45,35])
 with col2:
     st.session_state.raceno = st.text_input("Race #", st.session_state.raceno)
+
+races = requests.get("https://data.ninjakiwi.com/btd6/races")
+races_data = races.json()
 with col4:
     st.markdown('<div style="padding-top: 28px;"></div>', unsafe_allow_html=True)
     if st.button("Fetch leaderboard"):
-        st.session_state['leaderboard_visible'] = True
-        players = fetch_leaderboard()
-        with st.container():
-            st.text("Leaderboard (Top 5):")
+        if races_data['body'][0]['totalScores'] == 0:
+            st.error("Currently unavailable", icon="⚠️")
+        else:
+            st.session_state['leaderboard_visible'] = True
+            players = fetch_leaderboard()
+            with st.container():
+                st.text("Leaderboard (Top 5):")
+                
+                for x in range(5):
+                    col1, col2 = st.columns([2, 1])
+                    with col1:
+                        st.text(players[x]['displayName'])
+                    with col2:
+                        st.text(format_time(players[x]['score']))
+
+            race_name = fetch_race_name()
+            st.session_state.racetitle = race_name
+
+            for i in range(5):
+                st.session_state[f'ign{i+1}'] = players[i]['displayName']
+                st.session_state[f'time{i+1}'] = format_time(players[i]['score'])
             
-            # Display leaderboard entries in two columns
-            for x in range(5):
-                col1, col2 = st.columns([2, 1])
-                with col1:
-                    st.text(players[x]['displayName'])
-                with col2:
-                    st.text(format_time(players[x]['score']))
-
-        race_name = fetch_race_name()
-        st.session_state.racetitle = race_name
-
-        for i in range(5):
-            st.session_state[f'ign{i+1}'] = players[i]['displayName']
-            st.session_state[f'time{i+1}'] = format_time(players[i]['score'])
-        
-        if st.button("Close"):
-            st.session_state['leaderboard_visible'] = False
+            if st.button("Close"):
+                st.session_state['leaderboard_visible'] = False
 with col3:
     st.session_state.racetitle = st.text_input("Race title:", st.session_state.racetitle)
 with col1:

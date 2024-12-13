@@ -119,8 +119,8 @@ with col3:
         if start_round >= end_round:
             st.error("Invalid round input", icon="❌")
         else:
-            reg = pd.read_csv("image/regular.csv")
-            filtered_data = reg[(reg['round'] >= start_round+1) & (reg['round'] <= end_round)]
+            rev = pd.read_csv("image/reverse.csv")
+            filtered_data = rev[(rev['round'] >= start_round+1) & (rev['round'] <= end_round)]
             length_from_send = filtered_data['length'] + (filtered_data['round'] - start_round - 1)*0.2
             largest_length_index = length_from_send.idxmax()
             largest_length = filtered_data.loc[largest_length_index, 'length']
@@ -143,7 +143,7 @@ with col3:
                     message1 += f":small_blue_diamond: If you only send to :blue-background[**round {longest_round}**], you need to: "
                     while longest_round < end_round:
                         start_round_2 = longest_round + 1
-                        filtered_data_2 = reg[(reg['round'] >= start_round_2) & (reg['round'] <= end_round)]
+                        filtered_data_2 = rev[(rev['round'] >= start_round_2) & (rev['round'] <= end_round)]
                         length_from_send_2 = filtered_data_2['length'] + (filtered_data_2['round'] - start_round_2)*0.2
                         largest_length_index_2 = length_from_send_2.idxmax()
                         largest_length_2 = filtered_data_2.loc[largest_length_index_2, 'length']

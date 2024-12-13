@@ -5,14 +5,16 @@ st.write("I created this website for fun and as a way to learn coding :D")
 
 st.write(
     """
-    Update history:
+    Update history
+
+    Version 1:
+    - v1.0.0 First launch 6/12/24
     
-    - Dec 6th 2024: First launch
-
-    - Dec 8th 2024: Introduced race time calculator
-
-    - Dec 9th 2024: Added 'show segments' and 'show last bloons' to RTC
-
-    - Dec 11th 2024: Added 'fetch leaderboard' to RAF
+    Version 2:
+    - v2.0.0 Introduced race time calculator 8/12/24
+    - v2.0.1 Added 'show segments' and 'show last bloons' to RTC 9/12/24
+    - v2.1.0 Added 'fetch leaderboard' to RAF 11/12/24
+    - v2.1.1 Youtube links automatically remove shareID 12/12/24
+    - v2.1.2 If 'fetch leaderboard' button does not work, new race info is public 13/12/24
     """
 )
