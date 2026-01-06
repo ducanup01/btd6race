@@ -1,0 +1,64 @@
+name: Activity Leaderboard updater
+
+on:
+  schedule:
+    # - cron: "*/15 2-23 * * 5"
+    # - cron: "*/15 * * * 6,0,1"
+    # - cron: "*/15 0,1,2 * * 2"
+    - cron: "10,30,50 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository content
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      # Step 1: Cache virtual environment
+      - name: Cache virtual environment
+        id: venv-cache
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: ${{ runner.os }}-venv-${{ hashFiles('update_requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-venv-
+
+      # Step 2: Create virtual environment and install dependencies if cache missed
+      - name: Setup virtual environment and install dependencies
+        if: steps.venv-cache.outputs.cache-hit != 'true'
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          python -m pip install --upgrade pip
+          pip install -r update_requirements.txt
+
+      # Step 3: Activate virtual environment and run script
+      - name: Execute Python script
+        run: |
+          source .venv/bin/activate
+          python update_race_leaderboard.py
+
+      # Step 4: Commit updated CSV
+      - name: Commit files
+        run: |
+          git checkout auto-update
+          git config --local user.name "ducanup01"
+          git config --local user.email "ducanup01@gmail.com"
+          git add .
+          sleep 3
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "automatic updater"
+            git push origin auto-update --force
+          fi
+        env:
+          REPO_KEY: ${{ secrets.GITHUB_TOKEN }}
+          username: github-actions

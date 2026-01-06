@@ -1,0 +1,141 @@
+round,length,first,last
+1,23.01,blue,blue
+2,25.01,red,red
+3,16.73,blue,red
+4,17.33,blue,red
+5,20.56,camo red,camo regrow red
+6,18.71,green,regrow green
+7,26.81,black,regrow blue
+8,28.01,yellow,green
+9,18.96,regrow green,regrow green
+10,44.18,green,blue
+11,19.18,camo green,regrow blue
+12,17.41,regrow green,pink
+13,32.23,blue,yellow
+14,26.65,red,red
+15,25.01,blue,blue
+16,16.05,regrow green,green
+17,5.01,pink,pink
+18,26.85,yellow,green
+19,15.78,blue,black
+20,5.26,regrow black,regrow black
+21,18.15,red,blue
+22,8.01,purple,purple
+23,9.01,black,lead
+24,0.51,camo lead,camo lead
+25,21.16,regrow pink,regrow purple
+26,18.21,black,rainbow
+27,34.28,camo red,camo yellow
+28,5.01,regrow lead,regrow lead
+29,15.26,regrow pink,white
+30,13.10,camo lead,camo lead
+31,14.73,regrow black,regrow zebra
+32,26.01,rainbow,purple
+33,25.36,camo red,camo blue
+34,36.01,green,green
+35,33.78,regrow white,camo black
+36,19.01,camo regrow yellow,ceramic
+37,43.53,regrow white,regrow black
+38,29.08,black,regrow ceramic
+39,37.95,camo regrow white,camo rainbow
+40,0.51,fortified MOAB,fortified MOAB
+41,32.01,black,zebra
+42,10.61,camo regrow rainbow,camo regrow rainbow
+43,9.28,rainbow,MOAB
+44,23.70,zebra,zebra
+45,38.10,ceramic,pink
+46,7.01,fortified ceramic,fortified ceramic
+47,24.66,MOAB,camo regrow pink
+48,52.01,regrow fortified lead,fortified ceramic
+49,50.01,regrow yellow,regrow yellow
+50,18.01,fortified MOAB,MOAB
+51,21.15,fortified camo ceramic,zebra
+52,20.58,rainbow,regrow ceramic
+53,35.01,camo pink,camo pink
+54,19.43,regrow black,regrow black
+55,29.80,ceramic,fortified MOAB
+56,20.20,camo regrow purple,MOAB
+57,26.25,fortified MOAB,ceramic
+58,44.00,MOAB,MOAB
+59,26.18,fortified camo ceramic,rainbow
+60,0.53,fortified BFB,fortified BFB
+61,24.40,regrow zebra,fortified lead
+62,48.31,purple,fortified camo regrow lead
+63,42.26,fortified ceramic,fortified ceramic
+64,9.56,fortified MOAB,BFB
+65,40.68,BFB,fortified ceramic
+66,23.78,BFB,BFB
+67,26.46,fortitied MOAB,MOAB
+68,7.98,MOAB,fortified BFB
+69,42.15,camo regrow purple,camo ceramic
+70,30.01,rainbow,rainbow
+71,16.56,fortified regrow ceramic,fortified regrow ceramic
+72,21.71,fortified ceramic,fortified ceramic
+73,26.70,fortified MOAB,fortified MOAB
+74,31.23,regrow black,fortified BFB
+75,22.63,BFB,fortified BFB
+76,10.03,BFB,BFB
+77,58.95,fortified MOAB,fortified MOAB
+78,79.416,zebra,purple
+79,60.01,camo rainbow,camo rainbow
+80,20.03,ZOMG,ZOMG
+81,26.50,BFB,fortified MOAB
+82,37.08,BFB,ZOMG
+83,60.21,camo super ceramic,fortified camo regrow ceramic
+84,35.03,MOAB,fortified BFB
+85,10.03,ZOMG,ZOMG
+86,20.88,fortified BFB,fortified BFB
+87,10.03,ZOMG,ZOMG
+88,13.06,BFB,DDT
+89,18.18,fortified MOAB,fortified BFB
+90,11.91,fortified regrow super ceramic,DDT
+91,30.01,fortified ceramic,fortified ceramic
+92,35.01,fortified MOAB,fortified MOAB
+93,20.03,fortified BFB,fortified BFB
+94,15.03,BFB,BFB
+95,40.83,camo regrow purple,fortified MOAB
+96,32.16,fortified BFB,ZOMG
+97,4.25,fortified ZOMG,fortified DDT
+98,20.03,ZOMG,fortified BFB
+99,16.81,MOAB,BAD
+100,0.15,fortified BAD,fortified BAD
+101,9.51,camo purple,camo purple
+102,46.51,ZOMG,DDT
+103,19.01,fortified ZOMG,fortified DDT
+104,22.01,BFB,fortified MOAB
+105,9.01,ceramic,fortified ceramic
+106,33.51,BAD,fortified DDT
+107,10.01,fortified DDT,camo purple
+108,24.03,ZOMG,fortified ZOMG
+109,18.03,ZOMG,ZOMG
+110,36.03,BFB,BFB
+111,18.51,ZOMG,DDT
+112,20.03,fortified BFB,fortified BFB
+113,21.51,fortified MOAB,fortified ceramic
+114,30.03,fortified DDT,fortified ZOMG
+115,30.01,ZOMG,DDT
+116,15.03,ZOMG,BFB
+117,14.01,fortified camo ceramic,fortified camo ceramic
+118,21.01,fortified ZOMG,BAD
+119,51.01,fortified ZOMG,fortified MOAB
+120,26.03,BAD,fortified BAD
+121,15.03,BFB,ZOMG
+122,20.01,BFB,fortified camo lead
+123,40.01,fortified DDT,fortified DDT
+124,30.03,ZOMG,ZOMG
+125,40.01,fortified DDT,fortified MOAB
+126,27.01,fortified camo regrow ceramic,DDT
+127,14.03,MOAB,fortified BFB
+128,28.03,ZOMG,BFB
+129,28.01,fortified ZOMG,DDT
+130,40.03,MOAB,BFB
+131,21.03,BAD,BAD
+132,38.01,ZOMG,DDT
+133,37.03,fortified ZOMG,ZOMG
+134,24.05,fortified BFB,fortified BFB
+135,24.41,fortified ZOMG,fortified DDT
+136,45.03,fortified BFB,fortified BFB
+137,8.11,BAD,fortified MOAB
+138,40.01,BAD,fortified DDT
+139,45.03,BFB,fortified BFB
+140,46.23,fortified BAD,fortified BAD

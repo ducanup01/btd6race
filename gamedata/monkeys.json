@@ -1,0 +1,54 @@
+{
+    "Primary" : [
+        "DartMonkey",
+        "BoomerangMonkey",
+        "BombShooter",
+        "TackShooter",
+        "IceMonkey",
+        "GlueGunner",
+        "Desperado"
+    ],
+    "Military" : [
+        "SniperMonkey",
+        "MonkeySub",
+        "MonkeyBuccaneer",
+        "MonkeyAce",
+        "HeliPilot",
+        "MortarMonkey",
+        "DartlingGunner"
+    ],
+    "Magic" : [
+        "WizardMonkey",
+        "SuperMonkey",
+        "NinjaMonkey",
+        "Alchemist",
+        "Druid",
+        "Mermonkey"
+    ],
+    "Support" : [
+        "BananaFarm",
+        "SpikeFactory",
+        "MonkeyVillage",
+        "EngineerMonkey",
+        "BeastHandler"
+    ],
+    "Heroes" : [
+        "Quincy",
+        "Gwendolin",
+        "StrikerJones",
+        "ObynGreenfoot",
+        "Silas",
+        "Benjamin",
+        "PatFusty",
+        "CaptainChurchill",
+        "Ezili",
+        "Rosalia",
+        "Etienne",
+        "Sauda",
+        "Adora",
+        "AdmiralBrickell",
+        "Psi",
+        "Geraldo",
+        "Corvus"
+    ]
+}
