@@ -13,12 +13,15 @@ jobs:
 
     steps:
       - name: Checkout repository content
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          ref: auto-update
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.12
+          python-version: 3.13
 
       # Step 1: Cache virtual environment
       - name: Cache virtual environment
@@ -48,7 +51,6 @@ jobs:
       # Step 4: Commit updated CSV
       - name: Commit files
         run: |
-          git checkout auto-update
           git config --local user.name "ducanup01"
           git config --local user.email "ducanup01@gmail.com"
           git add .
