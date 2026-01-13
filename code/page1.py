@@ -207,6 +207,17 @@ def main():
             # df = df.head(50)
         else:
             df = df.sort_values(by=sort_option, ascending=False)  # Other columns descending
+            
+        #check until first known
+        known_urls = set(name_mapping.keys())
+        # Find position of first known user AFTER sorting
+        first_known_pos = df["url"].isin(known_urls).idxmax()
+        # If no known user exists at all, omit leaderboard
+        if not df.loc[first_known_pos, "url"] in known_urls:
+            df = df.iloc[0:0]
+        else:
+            df = df.loc[first_known_pos:]
+
         df = df.head(100)
 
     with col2:
