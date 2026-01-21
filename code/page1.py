@@ -142,6 +142,18 @@ def main():
     HOURS_BEFORE_RACE_END = 24 * (60 * 60 * 1000)
     HOUR_UNTIL_NEXT_RACE = 4 * (60 * 60 * 1000)
 
+    # df = df.dropna(subset=['name', 'gamecount'])
+    df['time_formatted'] = format_race_time(df['time'])
+
+    df['time_ago'] = (
+        current_ms
+        - df['time_left']
+        - race_config["CURRENT_RACE_WINDOW"]["start"]
+    ).astype(int).apply(format_ms_to_last_pb_string)
+
+    df['last_online_time'] = df['last_online'].apply(format_ms_to_last_pb_string)
+    
+    df['known_name'] = df['url'].apply(lambda x: name_mapping.get(x, df.loc[df['url'] == x, 'name'].values[0]))
 
     # Streamlit title
     st.title("Race Activity Leaderboard (RAL)")
@@ -156,6 +168,7 @@ def main():
 
     elif not next_race_start:
         st.markdown(f"__**\"{race_config["CURRENT_RACE_NAME"]}\"**__ has ended.", unsafe_allow_html=True)
+        df['last_online_time'] = ""
 
     elif current_race_end <= current_ms < next_race_start - HOUR_UNTIL_NEXT_RACE:
         st.markdown(f"__**\"{race_config["CURRENT_RACE_NAME"]}\"**__ has ended.", unsafe_allow_html=True)
@@ -176,18 +189,6 @@ def main():
         st.markdown(f"<h2 style='text-align: center; '>{format_ms_to_date_string(current_race_start + HOURS_AFTER_RACE_START - current_ms)}</h2>", unsafe_allow_html=True)
         return
     
-    # df = df.dropna(subset=['name', 'gamecount'])
-    df['time_formatted'] = format_race_time(df['time'])
-
-    df['time_ago'] = (
-        current_ms
-        - df['time_left']
-        - race_config["CURRENT_RACE_WINDOW"]["start"]
-    ).astype(int).apply(format_ms_to_last_pb_string)
-
-    df['last_online_time'] = df['last_online'].apply(format_ms_to_last_pb_string)
-    
-    df['known_name'] = df['url'].apply(lambda x: name_mapping.get(x, df.loc[df['url'] == x, 'name'].values[0]))
 
     # User selects sorting column
     col1, col2, col4 = st.columns([1.2,2.2,0.9], vertical_alignment="bottom")
