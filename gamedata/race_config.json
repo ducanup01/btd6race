@@ -6,10 +6,10 @@
         "start": 1767924000000,
         "end": 1768273200000
     },
-    "NEXT_RACE_NAME": "Summer Dreams",
-    "NEXT_RACE_URL": "https://data.ninjakiwi.com/btd6/races/mkceuysj/leaderboard",
+    "NEXT_RACE_NAME": "",
+    "NEXT_RACE_URL": "",
     "NEXT_RACE_WINDOW": {
-        "start": 1768528800000,
-        "end": 1768878000000
+        "start": 0,
+        "end": 0
     }
 }
