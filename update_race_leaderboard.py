@@ -53,12 +53,12 @@ def update_race_config():
     PLAYER_COUNT_THRESHOLD = 1
 
     for i, race in enumerate(races):
-        if race.get("totalScores", 0) > PLAYER_COUNT_THRESHOLD:
+        if (race.get("totalScores", 0) > PLAYER_COUNT_THRESHOLD):
             current = race
             next_race = races[i - 1] if i > 0 else None
             break
 
-    if current:
+    if current and (race["name"] != race_config["CURRENT_RACE_NAME"]):
         race_config["CURRENT_RACE_NAME"] = current["name"]
         race_config["CURRENT_RACE_URL"] = current["leaderboard"]
         race_config["CURRENT_RACE_WINDOW"]["start"] = current["start"]
@@ -70,6 +70,10 @@ def update_race_config():
         race_config["NEXT_RACE_WINDOW"]["start"] = next_race["start"]
         race_config["NEXT_RACE_WINDOW"]["end"] = next_race["end"]
     else:
+        race_config["NEXT_RACE_NAME"] = ""
+        race_config["NEXT_RACE_URL"] = ""
+        race_config["NEXT_RACE_WINDOW"]["start"] = 0
+        race_config["NEXT_RACE_WINDOW"]["end"] = 0
         print("No upcoming race found.")
 
     # Ensure directory exists
