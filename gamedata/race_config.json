@@ -1,10 +1,10 @@
 {
     "RACE_EVENT_URL": "https://data.ninjakiwi.com/btd6/races",
-    "CURRENT_RACE_NAME": "Summer Dreams",
-    "CURRENT_RACE_URL": "https://data.ninjakiwi.com/btd6/races/mkceuysj/leaderboard",
+    "CURRENT_RACE_NAME": "Cashed Out",
+    "CURRENT_RACE_URL": "https://data.ninjakiwi.com/btd6/races/Cashed_Out_mkq8icbo/leaderboard",
     "CURRENT_RACE_WINDOW": {
-        "start": 1768528800000,
-        "end": 1768878000000
+        "start": 1769133600000,
+        "end": 1769482800000
     },
     "NEXT_RACE_NAME": "",
     "NEXT_RACE_URL": "",
