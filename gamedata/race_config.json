@@ -6,10 +6,10 @@
         "start": 1769133600000,
         "end": 1769482800000
     },
-    "NEXT_RACE_NAME": "",
-    "NEXT_RACE_URL": "",
+    "NEXT_RACE_NAME": "Riptide Madness",
+    "NEXT_RACE_URL": "https://data.ninjakiwi.com/btd6/races/Riptide_Madness_mkzurzqk/leaderboard",
     "NEXT_RACE_WINDOW": {
-        "start": 0,
-        "end": 0
+        "start": 1769738400000,
+        "end": 1770087600000
     }
 }
