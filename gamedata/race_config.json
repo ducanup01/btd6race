@@ -1,15 +1,15 @@
 {
     "RACE_EVENT_URL": "https://data.ninjakiwi.com/btd6/races",
-    "CURRENT_RACE_NAME": "Guns Blazing",
-    "CURRENT_RACE_URL": "https://data.ninjakiwi.com/btd6/races/Guns_Blazing_mljy7615/leaderboard",
+    "CURRENT_RACE_NAME": "Underground Racing",
+    "CURRENT_RACE_URL": "https://data.ninjakiwi.com/btd6/races/Underground_Racing_mlqfirg1/leaderboard",
     "CURRENT_RACE_WINDOW": {
-        "start": 1770948000000,
-        "end": 1771297200000
-    },
-    "NEXT_RACE_NAME": "Underground Racing",
-    "NEXT_RACE_URL": "https://data.ninjakiwi.com/btd6/races/Underground_Racing_mlqfirg1/leaderboard",
-    "NEXT_RACE_WINDOW": {
         "start": 1771552800000,
         "end": 1771902000000
+    },
+    "NEXT_RACE_NAME": "",
+    "NEXT_RACE_URL": "",
+    "NEXT_RACE_WINDOW": {
+        "start": 0,
+        "end": 0
     }
 }
