@@ -6,10 +6,10 @@
         "start": 1773972000000,
         "end": 1774321200000
     },
-    "NEXT_RACE_NAME": "",
-    "NEXT_RACE_URL": "",
+    "NEXT_RACE_NAME": "Splish Splash",
+    "NEXT_RACE_URL": "https://data.ninjakiwi.com/btd6/races/Splish_Splash_mn61smfo/leaderboard",
     "NEXT_RACE_WINDOW": {
-        "start": 0,
-        "end": 0
+        "start": 1774576800000,
+        "end": 1774926000000
     }
 }
