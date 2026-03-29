@@ -310,7 +310,7 @@ else:
     
 col0, col1, col2, col3, col4 = st.columns([9,24,24,12,35], vertical_alignment="bottom")
 with col0:
-    st.image("image/1th.webp", clamp=True, use_container_width="auto")
+    st.image("image/1th.webp", clamp=True, width='stretch')
 with col1:
     player1 = st.text_input("Player (First place)", player1, disabled=True)
 with col2:
@@ -322,7 +322,7 @@ with col4:
 
 col0, col1, col2, col3, col4 = st.columns([9,24,24,12,35], vertical_alignment="bottom")
 with col0:
-    st.image("image/2th.webp", use_container_width="auto")
+    st.image("image/2th.webp", width='stretch')
 with col1:
     player2 = st.text_input("Player (2nd place)", player2, disabled=True)
 with col2:
@@ -334,7 +334,7 @@ with col4:
 
 col0, col1, col2, col3, col4 = st.columns([9,24,24,12,35], vertical_alignment="bottom")
 with col0:
-    st.image("image/3th.webp", use_container_width="auto")
+    st.image("image/3th.webp", width='stretch')
 with col1:
     player3 = st.text_input("Player (3rd place)", player3, disabled=True)
 with col2:
@@ -346,7 +346,7 @@ with col4:
 
 col0, col1, col2, col3, col4 = st.columns([9,24,24,12,35], vertical_alignment="bottom")
 with col0:
-    st.image("image/4th.webp", use_container_width="auto")
+    st.image("image/4th.webp", width='stretch')
 with col1:
     player4 = st.text_input("Player (4th place)", player4, disabled=True)
 with col2:
@@ -358,7 +358,7 @@ with col4:
 
 col0, col1, col2, col3, col4 = st.columns([9,24,24,12,35], vertical_alignment="bottom")
 with col0:
-    st.image("image/4th.webp", use_container_width="auto")
+    st.image("image/4th.webp", width='stretch')
 with col1:
     player5 = st.text_input("Player (5th place)", player5, disabled=True)
 with col2:
