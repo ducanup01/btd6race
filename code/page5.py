@@ -5,6 +5,12 @@ st.write("I created this website for fun and as a way to learn coding :D")
 
 st.header("Update History")
 
+# Version 7
+with st.expander('Version 7 – *"Is it over yet?"*', expanded=True):
+    st.markdown("""
+    - **v7.0.0** Discontinue RAL due to maintenance overhead – 29/03/2026
+    """)
+
 # Version 6
 with st.expander('Version 6 – *"Talk is cheap. Show me the code!"*', expanded=True):
     st.markdown("""
