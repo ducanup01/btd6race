@@ -11,12 +11,12 @@ with streamlit_analytics.track(unsafe_password="ducanup01"):
         title="Home",
         icon=":material/home:",
     )
-    page_1 = st.Page(
-        page="code/page1.py",
-        title="Race Activity Leaderboard",
-        icon=":material/leaderboard:",
-        default=True,
-    )
+    # page_1 = st.Page(
+    #     page="code/page1.py",
+    #     title="Race Activity Leaderboard",
+    #     icon=":material/leaderboard:",
+    #     default=True,
+    # )
     page_2 = st.Page(
         page="code/page2.py",
         title="Race Time Calculator",
@@ -30,7 +30,8 @@ with streamlit_analytics.track(unsafe_password="ducanup01"):
     page_4 = st.Page(
         page="code/page4.py",
         title="Race History Archive",
-        icon=":material/book_2:"
+        icon=":material/book_2:",
+        default = True,
     )
     page_5 = st.Page(
         page="code/page5.py",
@@ -40,7 +41,7 @@ with streamlit_analytics.track(unsafe_password="ducanup01"):
     pg = st.navigation(
         {
         "Home ": [home_page],
-        "Menu ": [page_1, page_2, page_3, page_4],
+        "Menu ": [page_2, page_3, page_4],
         "Index ": [page_5],
         }
     )
