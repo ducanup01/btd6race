@@ -2,7 +2,7 @@ name: Activity Leaderboard updater
 
 on:
   schedule:
-    - cron: "10,30,50 * * * *"
+    - cron: "10,40 * * * *"
 
 jobs:
   build:
