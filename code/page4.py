@@ -239,7 +239,7 @@ for id in selected_chunk.index[::-1]:
     with colleft:
         col1, col2 = st.columns([1, 8], vertical_alignment="center")
         with col1:
-            st.image(image_paths["1th"], width='stretch')
+            st.image(image_paths["1th"], use_container_width = True)
 
         with col2:
             if id in {47, 91, 101, 106}:  # Set of special IDs
@@ -250,7 +250,7 @@ for id in selected_chunk.index[::-1]:
 
         col1, col2 = st.columns([1, 8], vertical_alignment="center")
         with col1:
-            st.image(image_paths["2th"], width='stretch')
+            st.image(image_paths["2th"], use_container_width = True)
 
         with col2:
             st.write(f" :red-background[{df.at[id, 'url2'] if not str(df.at[id, 'url2']).startswith('https://') else name_mapping.get(df.at[id, 'url2'], df.at[id, 'name2'])}] "
@@ -258,7 +258,7 @@ for id in selected_chunk.index[::-1]:
 
         col1, col2 = st.columns([1, 8], vertical_alignment="center")
         with col1:
-            st.image(image_paths["3th"], width='stretch')
+            st.image(image_paths["3th"], use_container_width = True)
 
         with col2:
             st.write(f" :blue-background[{df.at[id, 'url3'] if not str(df.at[id, 'url3']).startswith('https://') else name_mapping.get(df.at[id, 'url3'], df.at[id, 'name3'])}] "
@@ -266,7 +266,7 @@ for id in selected_chunk.index[::-1]:
 
         col1, col2 = st.columns([1, 8], vertical_alignment="center")
         with col1:
-            st.image(image_paths["4th"], width='stretch')
+            st.image(image_paths["4th"], use_container_width = True)
 
         with col2:
             st.write(f" {df.at[id, 'url4'] if not str(df.at[id, 'url4']).startswith('https://') else name_mapping.get(df.at[id, 'url4'], df.at[id, 'name4'])} "
@@ -274,7 +274,7 @@ for id in selected_chunk.index[::-1]:
 
         col1, col2 = st.columns([1, 8], vertical_alignment="center")
         with col1:
-            st.image(image_paths["4th"], width='stretch')
+            st.image(image_paths["4th"], use_container_width = True)
 
         with col2:
             st.write(f" {df.at[id, 'url5'] if not str(df.at[id, 'url5']).startswith('https://') else name_mapping.get(df.at[id, 'url5'], df.at[id, 'name5'])} "
