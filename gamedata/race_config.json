@@ -6,10 +6,10 @@
         "start": 1774576800000,
         "end": 1774926000000
     },
-    "NEXT_RACE_NAME": "Could be a Race",
-    "NEXT_RACE_URL": "https://data.ninjakiwi.com/btd6/races/mnf2xco7/leaderboard",
+    "NEXT_RACE_NAME": "",
+    "NEXT_RACE_URL": "",
     "NEXT_RACE_WINDOW": {
-        "start": 1775127600000,
-        "end": 1775476800000
+        "start": 0,
+        "end": 0
     }
 }
