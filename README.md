@@ -2,7 +2,7 @@
 
 A simple tool for tracking changes in the **Bloons TD 6 Race Event** leaderboard.
 
-🔗 **Live App**: [btd6race.streamlit.app](https://btd6race.streamlit.app)
+🔗 **Live App**: [btd6racetracker.streamlit.app](https://btd6racetracker.streamlit.app/) (now delegated to @aidenhouser to host)
 
 ## 📌 Overview
 
